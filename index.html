@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Media pembelajaran interaktif untuk memahami konsep anuitas dan menghitung cicilan pinjaman.">
+    <meta name="theme-color" content="#17243a">
+
+    <title>Annuity | The Dragon World</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" aria-label="Navigasi utama">
+        <div class="nav-container">
+
+            <a href="#" class="logo" onclick="pindahHalaman('beranda'); return false;">
+                <span class="logo-icon">🐉</span>
+                ANNUITY<span class="logo-dot">.</span>
+            </a>
+
+            <div class="nav-menu">
+
+                <button type="button" class="nav-link active"
+                    onclick="pindahHalaman('beranda')">
+                    Beranda
+                </button>
+
+                <button type="button" class="nav-link"
+                    onclick="pindahHalaman('kalkulator')">
+                    Kalkulator
+                </button>
+
+                <button type="button" class="nav-link"
+                    onclick="pindahHalaman('tentang')">
+                    Tentang
+                </button>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <main id="konten-utama">
+
+        <!-- =================================
+             HALAMAN 1 : BERANDA
+        ================================== -->
+
+        <section id="beranda" class="page active" aria-label="Halaman beranda">
+
+            <div class="hero">
+
+                <div class="hero-overlay" aria-hidden="true"></div>
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        ✦ WELCOME TO THE DRAGON WORLD ✦
+                    </div>
+
+                    <p class="hero-subtitle">
+                        A JOURNEY THROUGH MATHEMATICS
+                    </p>
+
+                    <h1>
+                        Discover the World
+                        of <span>Annuity.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Setiap perjalanan memiliki perhitungan.
+                        Mari mengenal dunia anuitas dan menjelajahi
+                        bagaimana matematika bekerja dalam kehidupan
+                        sehari-hari.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="hero-button"
+                        onclick="pindahHalaman('kalkulator')">
+
+                        Mulai Petualangan
+                        <span>→</span>
+
+                    </button>
+
+                    <div class="hero-note">
+                        <span>✧</span>
+                        Explore • Learn • Calculate
+                    </div>
+
+                </div>
+
+                <div class="hero-character">
+
+                    <img
+                        src="naga.jpg"
+                        alt="Ilustrasi naga hitam di halaman pembuka">
+
+                </div>
+
+                <div class="hero-bottom">
+                    THE WORLD OF DRAGONS · THE ART OF MATHEMATICS
+                </div>
+
+            </div>
+
+
+            <!-- INTRODUCTION -->
+
+            <section class="intro-section">
+
+                <div class="intro-image">
+                    <img
+                        src="guys.jpg"
+                        alt="Ilustrasi dunia dan para penunggang naga">
+                </div>
+
+                <div class="intro-content">
+
+                    <span class="section-label">
+                        ✦ YOUR ADVENTURE BEGINS HERE
+                    </span>
+
+                    <h2>
+                        Every Dragon Has
+                        Its Own <span>Story.</span>
+                    </h2>
+
+                    <p>
+                        Sama seperti setiap naga yang memiliki
+                        karakteristik unik, setiap perhitungan
+                        juga memiliki prosesnya sendiri.
+                    </p>
+
+                    <p>
+                        Melalui website ini, kamu dapat mempelajari
+                        konsep anuitas, menghitung cicilan, serta
+                        memahami bagaimana bunga dan angsuran
+                        bekerja dalam suatu pinjaman.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="text-button"
+                        onclick="pindahHalaman('tentang')">
+
+                        Kenali Anuitas →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- FEATURES -->
+
+            <section class="features-section">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        ✦ EXPLORE THE KNOWLEDGE
+                    </span>
+
+                    <h2>
+                        Your <span>Adventure</span> Guide
+                    </h2>
+
+                    <p>
+                        Tiga hal yang bisa kamu temukan dalam
+                        perjalanan matematika ini.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-container">
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">01</div>
+
+                        <div class="feature-icon">📜</div>
+
+                        <h3>Pelajari Anuitas</h3>
+
+                        <p>
+                            Kenali pengertian, konsep, komponen,
+                            dan rumus dasar anuitas.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">02</div>
+
+                        <div class="feature-icon">🧭</div>
+
+                        <h3>Hitung Pinjaman</h3>
+
+                        <p>
+                            Masukkan data pinjaman dan temukan
+                            hasil perhitungan secara otomatis.
+                        </p>
+
+                    </div>
+
+
+                    <div class="feature-card">
+
+                        <div class="feature-number">03</div>
+
+                        <div class="feature-icon">🐉</div>
+
+                        <h3>Jelajahi Angsuran</h3>
+
+                        <p>
+                            Lihat rincian pembayaran, bunga,
+                            angsuran pokok, dan saldo pinjaman.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DRAGON COLLECTION -->
+
+            <section class="dragon-section">
+
+                <div class="dragon-text">
+
+                    <span class="section-label">
+                        ✦ A LITTLE EASTER EGG
+                    </span>
+
+                    <h2>
+                        The Hidden
+                        <span>Dragon World.</span>
+                    </h2>
+
+                    <p>
+                        Di balik setiap petualangan, selalu ada
+                        sesuatu yang menarik untuk ditemukan.
+                    </p>
+
+                </div>
+
+                <div class="dragon-gallery">
+
+                    <img
+                        src="easter egg.jpg"
+                        alt="Kumpulan ilustrasi berbagai spesies naga">
+
+                </div>
+
+            </section>
+
+
+            <!-- HOME FOOTER -->
+
+            <div class="home-footer">
+                <p>Made with curiosity and a little dragon magic.</p>
+                <span>ANNUITY · GROUP 3</span>
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             HALAMAN 2 : KALKULATOR
+        ================================== -->
+
+        <section id="kalkulator" class="page calculator-page" aria-label="Halaman kalkulator anuitas">
+
+            <div class="page-banner">
+
+                <div class="banner-content">
+
+                    <span class="section-label">
+                        ✦ THE HICCUP'S WORKSHOP
+                    </span>
+
+                    <h1>
+                        Annuity <span>Calculator</span>
+                    </h1>
+
+                    <p>
+                        Masukkan data pinjaman dan biarkan
+                        perhitungan dimulai.
+                    </p>
+
+                </div>
+
+                <div class="banner-decoration" aria-hidden="true">✧</div>
+
+            </div>
+
+
+            <div class="calculator-container">
+
+                <div class="section-heading calculator-heading">
+
+                    <span class="section-label">
+                        📜 YOUR CALCULATION JOURNEY
+                    </span>
+
+                    <h2>
+                        Let's Calculate!
+                    </h2>
+
+                    <p>
+                        Lengkapi informasi berikut untuk
+                        mendapatkan hasil perhitungan anuitas.
+                    </p>
+
+                </div>
+
+
+                <div class="calculator-card">
+
+                    <div class="calculator-card-title">
+
+                        <div>
+                            <span class="mini-label">
+                                CALCULATION NOTES
+                            </span>
+
+                            <h2>Data Pinjaman</h2>
+                        </div>
+
+                        <div class="paper-icon">📖</div>
+
+                    </div>
+
+
+<!-- PENGATURAN MATA UANG -->
+<div class="settings-divider">
+    <span>✦ THE DRAGON'S LEDGER ✦</span>
+</div>
+
+<div class="input-group currency-group">
+    <label for="mataUang">Mata Uang</label>
+
+    <select id="mataUang">
+        <option value="IDR" selected>🇮🇩 Rupiah Indonesia (IDR)</option>
+        <option value="USD">🇺🇸 US Dollar (USD)</option>
+        <option value="EUR">🇪🇺 Euro (EUR)</option>
+        <option value="GBP">🇬🇧 Pound Sterling (GBP)</option>
+        <option value="JPY">🇯🇵 Japanese Yen (JPY)</option>
+        <option value="KRW">🇰🇷 South Korean Won (KRW)</option>
+        <option value="SGD">🇸🇬 Singapore Dollar (SGD)</option>
+        <option value="AUD">🇦🇺 Australian Dollar (AUD)</option>
+        <option value="CAD">🇨🇦 Canadian Dollar (CAD)</option>
+        <option value="CHF">🇨🇭 Swiss Franc (CHF)</option>
+        <option value="CNY">🇨🇳 Chinese Yuan (CNY)</option>
+    </select>
+
+    <small class="input-hint">
+        Pilih mata uang yang digunakan dalam perhitungan.
+    </small>
+</div>
+
+
+<!-- POKOK PINJAMAN -->
+<div class="input-group">
+
+    <label for="pinjaman" id="labelPinjaman">
+        Pokok Pinjaman (IDR)
+    </label>
+
+    <input
+        type="number"
+        id="pinjaman"
+        placeholder="Contoh: 10000000"
+        min="0.01"
+        step="any"
+        required>
+
+</div>
+
+
+<!-- BUNGA -->
+<div class="input-group">
+
+    <label for="bunga">
+        Suku Bunga per Bulan (%)
+    </label>
+
+    <input
+        type="number"
+        id="bunga"
+        placeholder="Contoh: 1.5"
+        step="any"
+        min="0"
+        required>
+
+</div>
+
+
+<!-- PERIODE -->
+<div class="input-group">
+
+    <label for="periode">
+        Jumlah Periode (Bulan)
+    </label>
+
+    <input
+        type="number"
+        id="periode"
+        placeholder="Contoh: 12"
+        min="1"
+        max="1200"
+        step="1"
+        required>
+
+</div>
+
+
+<!-- PENGATURAN PEMBULATAN -->
+<div class="rounding-panel">
+
+    <div class="rounding-heading">
+
+        <div class="rounding-icon">🐉</div>
+
+        <div>
+            <span class="mini-label">NUMBER CUSTOMIZATION</span>
+            <h3>Atur Tampilan Angka</h3>
+            <p>
+                Tentukan bagaimana hasil perhitungan ditampilkan.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="rounding-options">
+
+        <label class="rounding-choice">
+
+            <input
+                type="radio"
+                name="modePembulatan"
+                value="presisi"
+                checked>
+
+            <span class="choice-content">
+                <span class="choice-icon">✧</span>
+
+                <span>
+                    <strong>Presisi</strong>
+                    <small>Tampilkan angka desimal</small>
+                </span>
+            </span>
+
+            <span class="choice-check">✓</span>
+
+        </label>
+
+
+        <label class="rounding-choice">
+
+            <input
+                type="radio"
+                name="modePembulatan"
+                value="bulat">
+
+            <span class="choice-content">
+                <span class="choice-icon">⚖</span>
+
+                <span>
+                    <strong>Pembulatan</strong>
+                    <small>Sederhanakan angka hasil</small>
+                </span>
+            </span>
+
+            <span class="choice-check">✓</span>
+
+        </label>
+
+    </div>
+
+
+    <!-- PILIHAN JENIS PEMBULATAN -->
+    <div class="rounding-suboptions" id="opsiPembulatan" hidden>
+
+        <p class="suboption-title">
+            Pilih jenis pembulatan:
+        </p>
+
+        <label class="suboption-choice">
+
+            <input
+                type="radio"
+                name="jenisPembulatan"
+                value="ribuan"
+                checked>
+
+            <span>
+                **Ke ribuan terdekat**
+                <small>Contoh: 1.967.987 → 1.968.000</small>
+            </span>
+
+        </label>
+
+
+        <label class="suboption-choice">
+
+            <input
+                type="radio"
+                name="jenisPembulatan"
+                value="satuan">
+
+            <span>
+                **Ke satuan mata uang**
+                <small>Contoh: 1.967,987 → 1.968</small>
+            </span>
+
+        </label>
+
+    </div>
+
+
+    <div class="rounding-note">
+        <span>✦</span>
+        Pengaturan ini hanya mengubah tampilan angka,
+        bukan ketelitian perhitungan matematis.
+    </div>
+
+</div>
+
+
+<!-- TOMBOL HITUNG -->
+<button
+    type="button"
+    class="calculate-button"
+    onclick="hitungAnuitas()">
+
+    Hitung Anuitas
+    <span>→</span>
+
+</button>
+
+                    
+                    <!-- HASIL -->
+
+                    <div class="result-container hasil" id="hasil" aria-live="polite" aria-atomic="false">
+
+                        <div class="result-heading">
+
+                            <span class="section-label">
+                                ✦ YOUR CALCULATION RESULT
+                            </span>
+
+                            <h2>Hasil Perhitungan</h2>
+
+                        </div>
+
+
+                        <div class="ringkasan">
+
+                            <div class="result-card box">
+
+                                <span class="result-symbol">💰</span>
+
+                                <h3>Cicilan per Bulan</h3>
+
+                                <p class="result-amount" id="cicilan">-</p>
+
+                            </div>
+
+
+                            <div class="result-card box">
+
+                                <span class="result-symbol">📦</span>
+
+                                <h3>Total Pembayaran</h3>
+
+                                <p class="result-amount" id="totalPembayaran">-</p>
+
+                            </div>
+
+
+                            <div class="result-card box">
+
+                                <span class="result-symbol">📜</span>
+
+                                <h3>Total Bunga</h3>
+
+                                <p class="result-amount" id="totalBunga">-</p>
+
+                            </div>
+
+                        </div>
+
+                      <!-- DRAGON EASTER EGG -->
+
+<div class="dragon-encounter" id="dragonEncounter">
+
+    <div class="dragon-sparkle">✦ ✧ ✦</div>
+
+    <span class="dragon-label">
+        ✦ A WILD DRAGON APPEARED! ✦
+    </span>
+
+    <h2 id="dragonTitle">
+        You Found a Dragon!
+    </h2>
+
+    <div class="dragon-image-wrapper">
+        <img
+            src=""
+            id="dragonImage"
+            alt="Naga yang berhasil ditemukan">
+    </div>
+
+    <p class="dragon-description" id="dragonDescription">
+        A magical companion has appeared!
+    </p>
+
+    <div class="dragon-chance" id="dragonChance">
+        Encounter Chance: 10%
+    </div>
+
+    <div class="dragon-footer">
+        ✧ KEEP CALCULATING, KEEP EXPLORING ✧
+    </div>
+
+</div>
+
+                        <!-- RUMUS -->
+
+                        <div class="rumus">
+
+                            <h3>📖 Rumus Anuitas</h3>
+
+                            <p class="formula" aria-label="A sama dengan P dikali i kali satu tambah i pangkat n, dibagi satu tambah i pangkat n dikurangi satu">
+                                A = P × [ i(1+i)<sup>n</sup> / ((1+i)<sup>n</sup> − 1) ]
+                            </p>
+
+                            <p>
+                                A = cicilan per bulan<br>
+                                P = pokok pinjaman<br>
+                                i = suku bunga per bulan<br>
+                                n = jumlah periode (bulan)
+                            </p>
+
+                        </div>
+
+
+                        <!-- TABEL -->
+
+                        <div class="table-heading">
+
+                            <h2>Tabel Angsuran</h2>
+
+                            <p>
+                                Rincian pembayaran pada setiap periode.
+                            </p>
+
+                        </div>
+
+                        <div class="table-container">
+
+                            <table>
+                                <caption>Rincian angsuran pinjaman setiap bulan</caption>
+
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Bulan</th>
+                                        <th scope="col">Saldo Awal</th>
+                                        <th scope="col">Bunga</th>
+                                        <th scope="col">Cicilan</th>
+                                        <th scope="col">Angsuran Pokok</th>
+                                        <th scope="col">Saldo Akhir</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody id="tabelAngsuran">
+                                </tbody>
+
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================
+             HALAMAN 3 : TENTANG
+        ================================== -->
+
+        <section id="tentang" class="page about-page" aria-label="Halaman tentang anuitas">
+
+            <div class="about-hero">
+
+                <div class="about-hero-content">
+
+                    <span class="section-label">
+                        ✦ KNOW YOUR WORLD
+                    </span>
+
+                    <h1>
+                        Beyond the
+                        <span>Numbers.</span>
+                    </h1>
+
+                    <p>
+                        Mengenal lebih dekat konsep matematika
+                        di balik perhitungan anuitas.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-container">
+
+                <div class="about-card">
+
+                    <span class="section-label">
+                        📜 THE KNOWLEDGE
+                    </span>
+
+                    <h2>Apa Itu Anuitas?</h2>
+
+                    <p>
+                        Anuitas adalah sistem pembayaran pinjaman
+                        secara berkala dengan jumlah cicilan yang
+                        tetap pada setiap periode, yang terdiri
+                        atas angsuran pokok dan bunga.
+                    </p>
+
+                    <div class="rumus">
+
+                        <h3>Komponen Anuitas</h3>
+
+                        <p>
+                            A = jumlah cicilan setiap bulan<br>
+                            P = pokok pinjaman<br>
+                            i = tingkat bunga per bulan<br>
+                            n = jumlah periode pembayaran
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <span class="section-label">
+                        ✦ OUR PURPOSE
+                    </span>
+
+                    <h2>Tujuan Pembuatan</h2>
+
+                    <p>
+                        Website ini dibuat sebagai media
+                        pembelajaran matematika untuk membantu
+                        memahami konsep anuitas melalui
+                        perhitungan otomatis dan tabel angsuran.
+                    </p>
+
+                </div>
+
+
+                <div class="about-card members-card">
+
+                    <span class="section-label">
+                        ✦ THE PEOPLE BEHIND THE PROJECT
+                    </span>
+
+                    <h2>Meet Group 3</h2>
+
+                    <p class="member-intro">
+                        Website ini merupakan hasil kerja sama
+                        Kelompok 3 XI-4.
+                    </p>
+
+                    <div class="member-list">
+
+                        <div class="member">01. Iqbal Candra</div>
+                        <div class="member">02. Azka Bintang</div>
+                        <div class="member">03. Haninda Aulia</div>
+                        <div class="member">04. Shahnaz Putri</div>
+                        <div class="member">05. Putri Shafa</div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            🐉 ANNUITY.
+        </div>
+
+        <p>
+            A little mathematics, a bigger adventure.
+        </p>
+
+        <span>© 2026 · GROUP 3</span>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="sciprt.js"></script>
+
+</body>
+
+</html>

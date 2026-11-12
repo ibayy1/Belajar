@@ -1,0 +1,2367 @@
+
+/* =====================================
+   1. GLOBAL SETTINGS
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --cream: #f5ead3;
+    --paper: #fff8e9;
+    --paper-dark: #e8d4ae;
+    --brown: #60452e;
+    --brown-light: #94734f;
+    --navy: #173c4c;
+    --blue: #315f70;
+    --blue-light: #a9cbd0;
+    --gold: #c49a50;
+    --text: #493b2e;
+    --muted: #82715f;
+    --white: #fffdf7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+::selection {
+    background: var(--blue-light);
+    color: var(--navy);
+}
+
+
+/* =====================================
+   2. NAVBAR
+===================================== */
+
+.navbar {
+    width: 100%;
+    background: var(--paper);
+    border-bottom: 2px solid var(--paper-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 17px 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    margin-right: 7px;
+}
+
+.logo-dot {
+    color: var(--gold);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    background: transparent;
+    border: none;
+    color: var(--brown-light);
+    font-size: 14px;
+    font-weight: 800;
+    padding: 9px 3px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--navy);
+}
+
+.nav-link.active::after,
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* =====================================
+   3. MULTIPLE PAGE
+===================================== */
+
+.page {
+    display: none;
+    min-height: 80vh;
+}
+
+.page.active {
+    display: block;
+    animation: pageEnter 0.55s ease;
+}
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================
+   4. HOME HERO
+===================================== */
+
+.hero {
+    position: relative;
+    min-height: 680px;
+    padding: 100px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(17, 42, 54, 0.91),
+            rgba(17, 42, 54, 0.62),
+            rgba(17, 42, 54, 0.15)
+        ),
+        url("yes.jpg");
+
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(16, 39, 48, 0.65),
+            transparent 40%
+        );
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 620px;
+    color: white;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 10px 17px;
+
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 30px;
+
+    color: #f3d99e;
+    background: rgba(255,255,255,0.1);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+}
+
+.hero-subtitle {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--blue-light);
+    font-weight: 800;
+    margin-bottom: 13px;
+}
+
+.hero-content h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 5vw, 65px);
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 22px;
+}
+
+.hero-content h1 span {
+    color: #e7c47c;
+}
+
+.hero-description {
+    max-width: 510px;
+    color: #e6e8df;
+    font-size: 16px;
+    line-height: 1.9;
+    margin-bottom: 32px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: #d9b56e;
+    color: #263c42;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: #f0d69c;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.hero-button span {
+    font-size: 19px;
+}
+
+.hero-note {
+    margin-top: 35px;
+    color: #e4d5b5;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.hero-note span {
+    color: var(--gold);
+    margin-right: 5px;
+}
+
+.hero-character {
+    position: relative;
+    z-index: 2;
+    width: 290px;
+    height: 390px;
+    margin-right: 2%;
+    flex-shrink: 0;
+
+    transform: translateX(-60px);
+}
+
+.hero-character img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.35));
+
+    animation: floatingDragon 4s ease-in-out infinite;
+}
+
+@keyframes floatingDragon {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-13px);
+    }
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 22px;
+    left: 8%;
+
+    color: rgba(255,255,255,0.7);
+    font-size: 10px;
+    letter-spacing: 3px;
+    z-index: 2;
+}
+
+
+/* =====================================
+   5. INTRODUCTION SECTION
+===================================== */
+
+.intro-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 75px;
+}
+
+.intro-image {
+    flex: 1;
+    min-width: 0;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    object-position: center;
+
+    border: 9px solid var(--paper);
+    outline: 1px solid var(--paper-dark);
+
+    box-shadow: 0 12px 35px rgba(75, 53, 29, 0.15);
+}
+
+.intro-content {
+    flex: 1;
+}
+
+.section-label {
+    display: inline-block;
+    color: var(--brown-light);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+
+.intro-content h2,
+.dragon-text h2,
+.section-heading h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 35px;
+    line-height: 1.4;
+    color: var(--navy);
+    margin-bottom: 18px;
+}
+
+.intro-content h2 span,
+.dragon-text h2 span,
+.section-heading h2 span {
+    color: var(--gold);
+}
+
+.intro-content p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.text-button {
+    border: none;
+    background: transparent;
+
+    color: var(--blue);
+    font-size: 14px;
+    font-weight: 800;
+
+    margin-top: 15px;
+    padding-bottom: 5px;
+
+    border-bottom: 2px solid var(--gold);
+    transition: 0.3s;
+}
+
+.text-button:hover {
+    color: var(--gold);
+    padding-left: 5px;
+}
+
+
+/* =====================================
+   6. FEATURES SECTION
+===================================== */
+
+.features-section {
+    background: #e9ddc5;
+    padding: 90px 35px;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 50px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.feature-container {
+    max-width: 1150px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.feature-card {
+    position: relative;
+    background: var(--paper);
+
+    padding: 35px 28px;
+    border: 1px solid #dbc8a7;
+    border-radius: 7px;
+
+    box-shadow: 0 7px 20px rgba(75,53,29,0.06);
+
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(75,53,29,0.12);
+}
+
+.feature-number {
+    position: absolute;
+    top: 20px;
+    right: 23px;
+
+    color: #d8c9aa;
+    font-family: 'Cinzel', serif;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.feature-icon {
+    font-size: 33px;
+    margin-bottom: 22px;
+}
+
+.feature-card h3 {
+    color: var(--navy);
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* =====================================
+   7. DRAGON COLLECTION
+===================================== */
+
+.dragon-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 100px 35px;
+
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+.dragon-text {
+    flex: 0.8;
+}
+
+.dragon-text p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.dragon-gallery {
+    flex: 1.2;
+    min-width: 0;
+}
+
+.dragon-gallery img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+
+    border: 9px solid var(--paper);
+    box-shadow: 0 12px 35px rgba(75,53,29,0.15);
+}
+
+
+/* =====================================
+   8. HOME FOOTER
+===================================== */
+
+.home-footer {
+    padding: 30px 20px;
+    text-align: center;
+    background: var(--navy);
+    color: #e5d9c0;
+}
+
+.home-footer p {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.home-footer span {
+    color: #c7a76c;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+
+/* =====================================
+   9. CALCULATOR PAGE BANNER
+===================================== */
+
+.calculator-page {
+    background:
+        linear-gradient(rgba(245,234,211,0.94), rgba(245,234,211,0.96)),
+        url("pertama.jpg") center/cover fixed;
+}
+
+.page-banner {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 260px;
+    padding: 65px 8%;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--navy);
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-banner .section-label {
+    color: #dfc28a;
+}
+
+.page-banner h1 {
+    font-family: 'Cinzel', serif;
+    color: white;
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.page-banner h1 span {
+    color: #dfc28a;
+}
+
+.page-banner p {
+    color: #d5e0dc;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.banner-decoration {
+    position: absolute;
+    right: 10%;
+    top: 10px;
+
+    color: rgba(255,255,255,0.08);
+    font-family: 'Cinzel', serif;
+    font-size: 190px;
+}
+
+
+/* =====================================
+   10. CALCULATOR CONTAINER
+===================================== */
+
+.calculator-container {
+    max-width: 1050px;
+    margin: auto;
+    padding: 80px 30px;
+}
+
+.calculator-heading {
+    margin-bottom: 35px;
+}
+
+.calculator-heading h2 {
+    font-size: 32px;
+}
+
+.calculator-card {
+    background: var(--paper);
+
+    padding: 40px;
+    border: 1px solid var(--paper-dark);
+    border-radius: 8px;
+
+    box-shadow: 0 12px 35px rgba(75,53,29,0.09);
+}
+
+.calculator-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--paper-dark);
+    padding-bottom: 22px;
+    margin-bottom: 30px;
+}
+
+.mini-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--brown-light);
+    font-weight: 800;
+}
+
+.calculator-card-title h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--navy);
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+.paper-icon {
+    font-size: 35px;
+}
+
+
+/* =====================================
+   11. INPUT
+===================================== */
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+
+    color: var(--brown);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 17px;
+
+    background: #fffdf8;
+    border: 1px solid #d9c7a7;
+    border-radius: 5px;
+
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(49,95,112,0.12);
+}
+
+.input-group input::placeholder {
+    color: #b6a48c;
+}
+
+
+/* =====================================
+   12. CALCULATE BUTTON
+===================================== */
+
+.calculate-button {
+    width: 100%;
+    padding: 16px;
+
+    border: none;
+    border-radius: 5px;
+
+    background: var(--navy);
+    color: white;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    transition: 0.3s;
+}
+
+.calculate-button span {
+    margin-left: 8px;
+}
+
+.calculate-button:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 18px rgba(23,60,76,0.2);
+}
+
+
+/* =====================================
+   13. RESULT CONTAINER
+===================================== */
+
+.result-container {
+    display: none;
+    margin-top: 45px;
+    padding-top: 35px;
+
+    border-top: 2px dashed var(--paper-dark);
+}
+
+.result-heading {
+    margin-bottom: 25px;
+}
+
+.result-heading h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    color: var(--navy);
+}
+
+.ringkasan {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.result-card {
+    min-width: 0;
+    padding: 25px 20px;
+
+    background: #e9f0ec;
+    border: 1px solid #c8d9d0;
+    border-radius: 6px;
+}
+
+.result-symbol {
+    display: block;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.result-card h3 {
+    color: var(--navy);
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+.result-amount {
+    color: var(--blue);
+    font-size: 21px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================
+   14. FORMULA
+===================================== */
+
+.rumus {
+    padding: 25px;
+    margin: 25px 0 35px;
+
+    background: #f1e5cd;
+    border-left: 4px solid var(--gold);
+    border-radius: 4px;
+
+    line-height: 1.9;
+}
+
+.rumus h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--navy);
+    margin-bottom: 12px;
+}
+
+.rumus p {
+    color: var(--brown);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.rumus .formula {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--blue);
+    overflow-wrap: anywhere;
+}
+
+
+/* =====================================
+   15. TABLE
+===================================== */
+
+.table-heading {
+    margin-bottom: 20px;
+}
+
+.table-heading h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--navy);
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.table-heading p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    background: var(--paper);
+}
+
+th, td {
+    padding: 14px 12px;
+    border: 1px solid #dfd0b5;
+    text-align: center;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+th {
+    background: var(--navy);
+    color: white;
+    font-weight: 800;
+}
+
+td {
+    color: var(--brown);
+}
+
+tr:nth-child(even) {
+    background: #f2e8d6;
+}
+
+
+/* =====================================
+   16. ABOUT PAGE
+===================================== */
+
+.about-page {
+    background: var(--cream);
+}
+
+.about-hero {
+    min-height: 340px;
+    padding: 80px 30px;
+
+    display: grid;
+    place-items: center;
+    text-align: center;
+
+    background:
+        linear-gradient(rgba(18,51,65,0.87), rgba(18,51,65,0.88)),
+        url("tutup.jpg") center/cover;
+}
+
+.about-hero-content {
+    max-width: 700px;
+}
+
+.about-hero .section-label {
+    color: #e3c78e;
+}
+
+.about-hero h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 43px;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.about-hero h1 span {
+    color: #e3c78e;
+}
+
+.about-hero p {
+    color: #e3e9e4;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.about-container {
+    max-width: 950px;
+    margin: auto;
+    padding: 70px 30px;
+}
+
+.about-card {
+    padding: 35px;
+    margin-bottom: 25px;
+
+    background: var(--paper);
+    border: 1px solid var(--paper-dark);
+    border-radius: 7px;
+
+    box-shadow: 0 7px 20px rgba(75,53,29,0.05);
+}
+
+.about-card h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 25px;
+    color: var(--navy);
+    margin-bottom: 17px;
+}
+
+.about-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.about-card .rumus {
+    margin-bottom: 0;
+}
+
+.member-intro {
+    margin-bottom: 20px;
+}
+
+.member-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.member {
+    padding: 15px;
+    background: #e9f0ec;
+    border: 1px solid #c8d9d0;
+    border-radius: 5px;
+
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 14px;
+}
+
+
+/* =====================================
+   17. MAIN FOOTER
+===================================== */
+
+.footer {
+    padding: 35px 20px;
+    text-align: center;
+
+    background: #122f3d;
+    color: #e7dfcf;
+}
+
+.footer-logo {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: #e2c17e;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 13px;
+    color: #c8d4d0;
+    margin-bottom: 15px;
+}
+
+.footer span {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #c49a50;
+}
+
+
+/* =====================================
+   18. RESPONSIVE TABLET
+===================================== */
+
+@media (max-width: 900px) {
+
+    .hero {
+        padding: 80px 6%;
+        min-height: 620px;
+    }
+
+    .hero-character {
+        width: 220px;
+        height: 330px;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .intro-section {
+        gap: 35px;
+    }
+
+    .dragon-section {
+        gap: 30px;
+    }
+
+    .intro-image img,
+    .dragon-gallery img {
+        height: 350px;
+    }
+}
+
+
+/* =====================================
+   19. RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width: 650px) {
+
+    .nav-container {
+        padding: 15px 17px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 19px;
+    }
+
+    .nav-menu {
+        gap: 18px;
+    }
+
+    .nav-link {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 720px;
+        padding: 75px 25px 100px;
+
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        background-position: 58% center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-badge {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-content h1 {
+        font-size: 37px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .hero-character {
+        width: 190px;
+        height: 210px;
+        margin: 25px auto 0;
+    }
+
+    .hero-note {
+        font-size: 10px;
+    }
+
+    .hero-bottom {
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .intro-section {
+        padding: 65px 22px;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+    .intro-image img {
+        height: 300px;
+    }
+
+    .intro-content h2,
+    .dragon-text h2,
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .features-section {
+        padding: 65px 22px;
+    }
+
+    .feature-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .feature-card {
+        padding: 28px;
+    }
+
+    .dragon-section {
+        padding: 65px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 30px;
+    }
+
+    .dragon-gallery img {
+        height: 300px;
+    }
+
+    .page-banner {
+        padding: 55px 25px;
+        min-height: 230px;
+    }
+
+    .page-banner h1 {
+        font-size: 30px;
+    }
+
+    .banner-decoration {
+        font-size: 120px;
+        right: 5%;
+    }
+
+    .calculator-container,
+    .about-container {
+        padding: 55px 18px;
+    }
+
+    .calculator-card {
+        padding: 23px 18px;
+    }
+
+    .calculator-card-title h2 {
+        font-size: 21px;
+    }
+
+    .ringkasan {
+        grid-template-columns: 1fr;
+    }
+
+    .result-card {
+        padding: 22px;
+    }
+
+    .result-amount {
+        font-size: 20px;
+    }
+
+  
+/* =====================================
+   20. ACCESSIBILITY & INTERACTION
+===================================== */
+
+/* Tautan pintas untuk pengguna keyboard */
+.skip-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 1000;
+    padding: 11px 16px;
+    border-radius: 6px;
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 800;
+    text-decoration: none;
+    transform: translateY(-160%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+/* Teks khusus screen reader */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Fokus keyboard */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 4px;
+}
+
+.nav-link:focus-visible {
+    border-radius: 3px;
+}
+
+
+/* =====================================
+   21. LAYOUT REFINEMENT
+===================================== */
+
+main {
+    width: 100%;
+}
+
+.page {
+    width: 100%;
+    overflow: hidden;
+}
+
+.calculator-page {
+    background-attachment: scroll;
+}
+
+.calculator-card,
+.about-card,
+.feature-card,
+.result-card {
+    overflow-wrap: anywhere;
+}
+
+.table-container {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-container:focus-within {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+/* Input angka */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+
+/* =====================================
+   22. RESPONSIVE TABLET
+===================================== */
+
+@media (max-width: 900px) {
+    .nav-container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .hero {
+        gap: 20px;
+    }
+
+    .hero-content {
+        max-width: 560px;
+    }
+
+    .hero-character {
+        width: 210px;
+        height: 310px;
+        margin-right: 0;
+    }
+
+    .intro-section,
+    .dragon-section {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .calculator-card {
+        padding: 32px;
+    }
+
+    .ringkasan {
+        gap: 12px;
+    }
+
+    .result-card {
+        padding: 22px 16px;
+    }
+
+    .result-amount {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================
+   23. RESPONSIVE MOBILE
+===================================== */
+
+@media (max-width: 650px) {
+    .nav-container {
+        justify-content: center;
+    }
+
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu {
+        width: 100%;
+        justify-content: center;
+        gap: clamp(18px, 7vw, 34px);
+    }
+
+    .nav-link {
+        padding: 8px 2px;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 70px 22px 90px;
+        gap: 5px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(32px, 9vw, 39px);
+    }
+
+    .hero-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        line-height: 1.75;
+    }
+
+    .hero-character {
+        width: min(190px, 55vw);
+        height: 190px;
+    }
+
+    .hero-note {
+        margin-top: 22px;
+        letter-spacing: 1px;
+    }
+
+    .intro-image,
+    .intro-content,
+    .dragon-text,
+    .dragon-gallery {
+        width: 100%;
+    }
+
+    .intro-image img,
+    .dragon-gallery img {
+        height: auto;
+        max-height: 330px;
+        min-height: 220px;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .intro-content h2,
+    .dragon-text h2 {
+        line-height: 1.3;
+    }
+
+    .page-banner {
+        min-height: 220px;
+    }
+
+    .page-banner h1 {
+        font-size: clamp(27px, 7vw, 32px);
+    }
+
+    .page-banner p {
+        font-size: 13px;
+    }
+
+    .calculator-heading h2 {
+        font-size: 27px;
+    }
+
+    .calculator-card {
+        padding: 22px 16px;
+    }
+
+    .calculator-card-title {
+        gap: 12px;
+    }
+
+    .paper-icon {
+        font-size: 29px;
+        flex-shrink: 0;
+    }
+
+    .input-group input {
+        min-height: 48px;
+        font-size: 16px;
+    }
+
+    .calculate-button {
+        min-height: 50px;
+    }
+
+    .result-heading h2 {
+        font-size: 23px;
+    }
+
+    .rumus {
+        padding: 19px 16px;
+    }
+
+    .rumus .formula {
+        font-size: 15px;
+        line-height: 1.8;
+    }
+
+    .table-heading h2 {
+        font-size: 19px;
+    }
+
+    .about-hero {
+        min-height: 300px;
+        padding: 65px 22px;
+    }
+
+    .about-hero h1 {
+        font-size: 34px;
+    }
+
+    .about-card {
+        padding: 25px 19px;
+    }
+
+    .about-card h2 {
+        font-size: 22px;
+    }
+
+    .member-list {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 30px 18px;
+    }
+}
+
+
+/* =====================================
+   24. SMALL MOBILE
+===================================== */
+
+@media (max-width: 380px) {
+    .nav-menu {
+        gap: 14px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding-left: 17px;
+        padding-right: 17px;
+    }
+
+    .hero-badge {
+        padding: 9px 12px;
+        font-size: 8px;
+    }
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .calculator-container,
+    .about-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .calculator-card {
+        padding: 19px 13px;
+    }
+
+    .result-amount {
+        font-size: 18px;
+    }
+}
+
+
+/* =====================================
+   25. REDUCED MOTION
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   26. THE DRAGON'S LEDGER
+   Currency & Rounding Customization
+========================================= */
+
+/* PEMBATAS SECTION */
+
+.settings-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 35px 0 25px;
+
+    color: var(--brown-light);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+
+.settings-divider::before,
+.settings-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+}
+
+
+/* =========================================
+   27. CURRENCY SELECTOR
+========================================= */
+
+.currency-group select {
+    display: block;
+    width: 100%;
+    min-height: 52px;
+    padding: 13px 16px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background-color: #fffdf8;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23173c4c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+
+    border: 1px solid #d9c7a7;
+    border-radius: 6px;
+
+    color: var(--navy);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.currency-group select:hover {
+    border-color: var(--gold);
+    background-color: #fffaf0;
+}
+
+.currency-group select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(196, 154, 80, 0.15);
+}
+
+.currency-group select option {
+    background: #fffdf8;
+    color: var(--navy);
+    padding: 10px;
+}
+
+.input-hint {
+    display: block;
+    margin-top: 8px;
+
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   28. ROUNDING PANEL
+========================================= */
+
+.rounding-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    margin: 32px 0;
+    padding: 27px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(196, 154, 80, 0.18),
+            transparent 38%
+        ),
+        linear-gradient(
+            135deg,
+            #f8f0df,
+            #eee2cb
+        );
+
+    border: 1px solid #d8c39b;
+    border-radius: 10px;
+
+    box-shadow:
+        0 8px 22px rgba(46, 35, 21, 0.07),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.22);
+}
+
+/* Ornamen dekoratif */
+.rounding-panel::before {
+    content: "✧";
+
+    position: absolute;
+    z-index: -1;
+    top: -20px;
+    right: 15px;
+
+    color: rgba(196, 154, 80, 0.20);
+    font-family: 'Cinzel', serif;
+    font-size: 115px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.rounding-panel::after {
+    content: "";
+
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    right: 0;
+
+    width: 100px;
+    height: 100px;
+
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(23, 60, 76, 0.08),
+        transparent 70%
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   29. ROUNDING HEADER
+========================================= */
+
+.rounding-heading {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 25px;
+}
+
+.rounding-icon {
+    display: grid;
+    place-items: center;
+
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+
+    background: var(--navy);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+
+    color: #f4dca8;
+    font-size: 25px;
+
+    box-shadow:
+        0 5px 12px rgba(23, 60, 76, 0.18),
+        inset 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.mini-label {
+    display: block;
+
+    color: var(--brown-light);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.rounding-heading h3 {
+    margin: 5px 0 6px;
+
+    color: var(--navy);
+    font-family: 'Cinzel', serif;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.rounding-heading p {
+    margin: 0;
+
+    color: var(--muted);
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   30. ROUNDING MODE CARDS
+========================================= */
+
+.rounding-options {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.rounding-choice {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    min-width: 0;
+    padding: 17px;
+
+    background: rgba(255, 253, 248, 0.92);
+    border: 1px solid #ddc9a5;
+    border-radius: 8px;
+
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.rounding-choice:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+
+    box-shadow: 0 6px 15px rgba(70, 49, 24, 0.08);
+}
+
+/* Sembunyikan radio bawaan */
+.rounding-choice input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.choice-content {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.choice-icon {
+    display: grid;
+    place-items: center;
+
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+
+    background: #eee2cb;
+    border-radius: 50%;
+
+    color: var(--brown);
+    font-size: 20px;
+
+    transition: all 0.25s ease;
+}
+
+.choice-content strong {
+    display: block;
+
+    color: var(--navy);
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.choice-content small {
+    display: block;
+    margin-top: 4px;
+
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.choice-check {
+    display: grid;
+    place-items: center;
+
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+
+    border: 1px solid #cbb895;
+    border-radius: 50%;
+
+    color: transparent;
+    font-size: 12px;
+    font-weight: 900;
+
+    transition: all 0.25s ease;
+}
+
+/* Tampilan ketika dipilih */
+.rounding-choice:has(input:checked) {
+    background: #e6eee9;
+    border: 1.5px solid var(--blue);
+
+    box-shadow:
+        0 4px 13px rgba(49, 95, 112, 0.10),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.45);
+}
+
+.rounding-choice:has(input:checked) .choice-icon {
+    background: var(--navy);
+    color: #f4dca8;
+}
+
+.rounding-choice:has(input:checked) .choice-check {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: white;
+}
+
+.rounding-choice:focus-within {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   31. ROUNDING SUBOPTIONS
+========================================= */
+
+.rounding-suboptions {
+    position: relative;
+    z-index: 1;
+
+    margin-top: 18px;
+    padding: 18px;
+
+    background: rgba(255, 250, 239, 0.88);
+    border: 1px dashed #c9ad7c;
+    border-radius: 8px;
+
+    animation: roundingAppear 0.3s ease;
+}
+
+.rounding-suboptions[hidden] {
+    display: none;
+}
+
+@keyframes roundingAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suboption-title {
+    margin: 0 0 12px;
+
+    color: var(--brown);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.suboption-choice {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+
+    padding: 13px 10px;
+    border-radius: 6px;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.suboption-choice + .suboption-choice {
+    border-top: 1px solid #eadcc3;
+}
+
+.suboption-choice:hover {
+    background: rgba(230, 218, 194, 0.42);
+}
+
+.suboption-choice input {
+    margin-top: 4px;
+    accent-color: var(--navy);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.suboption-choice strong {
+    display: block;
+
+    color: var(--navy);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.suboption-choice small {
+    display: block;
+    margin-top: 5px;
+
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   32. INFORMATION NOTE
+========================================= */
+
+.rounding-note {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    margin-top: 19px;
+    padding-top: 15px;
+
+    border-top: 1px solid #ddc9a5;
+
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.rounding-note span {
+    flex-shrink: 0;
+    color: var(--gold);
+    font-size: 15px;
+}
+
+
+/* =========================================
+   33. RESPONSIVE TABLET & MOBILE
+========================================= */
+
+@media (max-width: 900px) {
+    .rounding-panel {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 650px) {
+    .settings-divider {
+        gap: 9px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .rounding-panel {
+        padding: 21px 16px;
+        margin: 27px 0;
+    }
+
+    .rounding-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .rounding-icon {
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+    }
+
+    .rounding-heading h3 {
+        font-size: 16px;
+    }
+
+    .rounding-heading p {
+        font-size: 11px;
+    }
+
+    .rounding-options {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .rounding-choice {
+        padding: 14px;
+    }
+
+    .rounding-suboptions {
+        padding: 15px 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .rounding-panel {
+        padding: 18px 13px;
+    }
+
+    .rounding-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 19px;
+    }
+
+    .rounding-heading h3 {
+        font-size: 14px;
+    }
+
+    .choice-content {
+        gap: 8px;
+    }
+
+    .choice-icon {
+        width: 33px;
+        height: 33px;
+        font-size: 17px;
+    }
+
+    .choice-content strong {
+        font-size: 12px;
+    }
+
+    .choice-content small {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================
+   34. REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .rounding-choice,
+    .choice-icon,
+    .choice-check {
+        transition: none;
+    }
+
+    .rounding-suboptions {
+        animation: none;
+    }
+}
+
+  /* =====================================
+   DRAGON ENCOUNTER EASTER EGG
+===================================== */
+
+.dragon-encounter {
+    display: none;
+    position: relative;
+    overflow: hidden;
+
+    margin: 35px 0;
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fff6d9,
+            #f1e2c5 65%,
+            #e9d5b5
+        );
+
+    border: 2px solid #c9a66b;
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 30px rgba(70, 49, 28, 0.12);
+}
+
+.dragon-encounter.show {
+    display: block;
+    animation: dragonAppear 0.7s ease;
+}
+
+.dragon-label {
+    display: inline-block;
+
+    color: #96703d;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.dragon-encounter h2 {
+    margin: 12px 0;
+
+    color: #493522;
+    font-family: 'Cinzel', serif;
+    font-size: 25px;
+}
+
+.dragon-image-wrapper {
+    width: 220px;
+    height: 220px;
+
+    margin: 15px auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.dragon-image-wrapper img {
+    width: 200%;
+    height: 200%;
+
+    object-fit: contain;
+
+    animation: dragonFloat 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 12px 8px rgba(60, 40, 20, 0.2));
+}
+
+.dragon-description {
+    color: #70563b;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.dragon-chance {
+    display: inline-block;
+
+    padding: 9px 17px;
+
+    color: #fff;
+    background: #80613e;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.dragon-footer {
+    margin-top: 20px;
+
+    color: #a1855b;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.dragon-sparkle {
+    color: #c49a53;
+    font-size: 25px;
+    letter-spacing: 15px;
+
+    animation: sparkle 1.8s ease-in-out infinite;
+}
+
+
+/* ANIMASI MUNCUL */
+
+@keyframes dragonAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(35px) scale(0.85);
+    }
+
+    70% {
+        transform: translateY(-7px) scale(1.03);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* ANIMASI NAGA MELAYANG */
+
+@keyframes dragonFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(3deg);
+    }
+}
+
+
+/* ANIMASI KILAU */
+
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.95);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.12);
+    }
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .dragon-encounter {
+        padding: 28px 15px;
+    }
+
+    .dragon-encounter h2 {
+        font-size: 21px;
+    }
+
+    .dragon-image-wrapper {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+
+/* AKSESIBILITAS */
+
+@media (prefers-reduced-motion: reduce) {
+    .dragon-encounter.show,
+    .dragon-image-wrapper img,
+    .dragon-sparkle {
+        animation: none;
+    }
+}
